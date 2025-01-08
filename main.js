@@ -152,3 +152,16 @@ async function main() {
 }
 
 main();
+
+// Ajouter un serveur HTTP minimaliste pour les besoins de Koyeb
+const http = require('http');
+
+const server = http.createServer((req, res) => {
+    res.writeHead(200, { 'Content-Type': 'text/plain' });
+    res.end('Service is running');
+});
+
+const PORT = process.env.PORT || 8000;
+server.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+});
